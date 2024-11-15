@@ -1,1 +1,10 @@
-<p>dashboard works!</p>
+<div class="admin-dashboard">
+  <h1>Admin Dashboard</h1>
+  <div class="actions">
+    <a routerLink="/authors" class="btn">Manage Authors</a>
+    <a routerLink="/books" class="btn">Manage Books</a>
+  </div>
+
+  <a routerLink="/" class="btn" (click)="logout()">Logout</a>
+
+</div>

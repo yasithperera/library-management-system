@@ -1,1 +1,16 @@
-<p>manage-books works!</p>
+<div class="manage-books">
+  <h2>Manage Books</h2>
+
+  <h3>Add New Book</h3>
+  <button routerLink="/add-book" routerLinkActive="active">Add Book</button>
+
+
+  <h3>Update Existing Books</h3>
+  <ul>
+    <li *ngFor="let book of books">
+      {{ book.title }} by {{ book.authorName }}
+      <button (click)="updateBook(book.id)" class="btn">Edit</button>
+      <button (click)="deleteBook(book.id)" class="btn btn-danger">Delete</button>
+    </li>
+  </ul>
+</div>

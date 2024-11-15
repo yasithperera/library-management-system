@@ -49,7 +49,8 @@ export class AddBookComponent implements OnInit {
     'Business',
     'Technology',
     'Science',
-    'Religion & Spirituality'
+    'Religion & Spirituality',
+    'Personal Development'
   ];
 
   constructor(private authorService: AuthorService, private bookService: BookService, private firestore: AngularFirestore) {

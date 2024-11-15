@@ -1,4 +1,5 @@
 {
   "adminUsername": "admin",
-  "adminPassword": "admin123"
+  "adminPassword": "admin123",
+  "token": "lib2024"
 }

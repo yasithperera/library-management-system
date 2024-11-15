@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { Book, BookDTO } from "../models/book.model";
-import { Observable, from } from "rxjs";
-import { AngularFirestore } from "@angular/fire/compat/firestore";
+import {Injectable} from '@angular/core';
+import {Book, BookDTO} from "../models/book.model";
+import {Observable, from, catchError, map} from "rxjs";
+import {AngularFirestore} from "@angular/fire/compat/firestore";
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class BookService {
 
   // Method to get all books
   getAllBooks(): Observable<Book[]> {
-    return this.booksCollection.valueChanges({ idField: 'id' });
+    return this.booksCollection.valueChanges({idField: 'id'});
   }
 
   // Method to search books by title
@@ -32,7 +32,7 @@ export class BookService {
       query.then((querySnapshot) => {
         const books: Book[] = [];
         querySnapshot.forEach((doc) => {
-          books.push({ id: doc.id, ...doc.data() as Book });
+          books.push({id: doc.id, ...doc.data() as Book});
         });
         return books;
       })
@@ -75,7 +75,7 @@ export class BookService {
       query.then((querySnapshot) => {
         const books: Book[] = [];
         querySnapshot.forEach((doc) => {
-          books.push({ id: doc.id, ...doc.data() as Book });
+          books.push({id: doc.id, ...doc.data() as Book});
         });
         return books;
       })
@@ -89,10 +89,66 @@ export class BookService {
       query.then((querySnapshot) => {
         const books: Book[] = [];
         querySnapshot.forEach((doc) => {
-          books.push({ id: doc.id, ...doc.data() as Book });
+          books.push({id: doc.id, ...doc.data() as Book});
         });
         return books;
       })
     );
   }
+
+  // Update a book by ID
+  updateBook(book: Book): Observable<void> {
+    return from(
+      this.firestore.collection('books').doc(book.id).update({
+        title: book.title,
+        authorId: book.authorId,
+        genre: book.genre,
+        isbn: book.isbn,
+        description: book.description,
+        coverImageUrl: book.coverImageUrl,
+        tags: book.tags
+      })
+    ).pipe(
+      catchError(error => {
+        console.error('Error updating book: ', error);
+        throw error;  // or handle it based on your needs
+      })
+    );
+  }
+
+
+  // Delete a book by ID
+  deleteBook(bookId: string): Promise<void> {
+    return this.booksCollection.doc(bookId).delete();
+  }
+
+  // Fetch a book by its ID
+  getBookById(id: string): Observable<Book> {
+    return this.firestore.collection('books').doc(id).get().pipe(
+      map(docSnapshot => {
+        const data = docSnapshot.data();
+        if (data && this.isBook(data)) {
+          return {
+            id: docSnapshot.id,
+            title: data.title,
+            authorId: data.authorId,
+            genre: data.genre,
+            isbn: data.isbn,
+            description: data.description,
+            coverImageUrl: data.coverImageUrl,
+            tags: data.tags
+          };
+        } else {
+          throw new Error('Invalid book data or book not found');
+        }
+      })
+    );
+  }
+
+// Type guard to check if the data is a valid Book
+  private isBook(data: any): data is Book {
+    return data && typeof data.title === 'string' && typeof data.authorId === 'string';
+  }
+
+
 }

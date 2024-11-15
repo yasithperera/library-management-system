@@ -1,1 +1,20 @@
-<p>manage-authors works!</p>
+<div class="manage-authors">
+  <h2>Manage Authors</h2>
+  <h3>Add New Author</h3>
+  <button routerLink="/add-author" routerLinkActive="active">Add Author</button>
+
+  <!--  <form (ngSubmit)="addAuthor()">-->
+  <!--    <h3>Add New Author</h3>-->
+  <!--    <input type="text" placeholder="Author Name" [(ngModel)]="authorName" name="authorName" required />-->
+  <!--    <button type="submit" class="btn">Add Author</button>-->
+  <!--  </form>-->
+
+  <h3>Update Existing Authors</h3>
+  <ul>
+    <li *ngFor="let author of authors">
+      {{ author.name }}
+      <button class="btn btn-primary" (click)="editAuthor(author.id!)">Edit</button>
+      <button (click)="deleteAuthor(author.id!)" class="btn btn-danger">Delete</button>
+    </li>
+  </ul>
+</div>

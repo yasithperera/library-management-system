@@ -20,6 +20,9 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { ManageAuthorsComponent } from './admin/manage-authors/manage-authors.component';
 import { ManageBooksComponent } from './admin/manage-books/manage-books.component';
+import { UpdateAuthorComponent } from './admin/update-author/update-author.component';
+import { UpdateBookComponent } from './admin/update-book/update-book.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { ManageBooksComponent } from './admin/manage-books/manage-books.componen
     LoginComponent,
     DashboardComponent,
     ManageAuthorsComponent,
-    ManageBooksComponent
+    ManageBooksComponent,
+    UpdateAuthorComponent,
+    UpdateBookComponent,
+    UnauthorizedComponent
   ],
   imports: [
     BrowserModule,
