@@ -1,0 +1,105 @@
+/* Container and heading styles */
+.manage-books {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Add New Book Button */
+.add-new-book button {
+  width: 200px;
+  padding: 12px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+}
+
+/* Update Existing Books Section */
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.list-group-item .d-flex {
+  gap: 1rem;
+}
+
+.list-group-item .btn {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+}
+
+/* Button Customizations */
+.btn-success {
+  background-color: #28a745;
+  border: none;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border: none;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .manage-books {
+    padding: 0 15px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  .list-group-item {
+    font-size: 1rem;
+  }
+}

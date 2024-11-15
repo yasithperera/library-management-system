@@ -1,20 +1,26 @@
-<div class="manage-authors">
-  <h2>Manage Authors</h2>
-  <h3>Add New Author</h3>
-  <button routerLink="/add-author" routerLinkActive="active">Add Author</button>
+<div class="manage-authors container mt-5">
+  <h2 class="text-center mb-4">Manage Authors</h2>
 
-  <!--  <form (ngSubmit)="addAuthor()">-->
-  <!--    <h3>Add New Author</h3>-->
-  <!--    <input type="text" placeholder="Author Name" [(ngModel)]="authorName" name="authorName" required />-->
-  <!--    <button type="submit" class="btn">Add Author</button>-->
-  <!--  </form>-->
+  <!-- Add New Author Section -->
+  <div class="add-new-author mb-5">
+    <h3>Add New Author</h3>
+    <button routerLink="/add-author" routerLinkActive="active" class="btn btn-success btn-lg">Add Author</button>
+  </div>
 
-  <h3>Update Existing Authors</h3>
-  <ul>
-    <li *ngFor="let author of authors">
-      {{ author.name }}
-      <button class="btn btn-primary" (click)="editAuthor(author.id!)">Edit</button>
-      <button (click)="deleteAuthor(author.id!)" class="btn btn-danger">Delete</button>
-    </li>
-  </ul>
+  <!-- Update Existing Authors Section -->
+  <div class="update-authors">
+    <h3>Update Existing Authors</h3>
+    <ul class="list-group">
+      <li *ngFor="let author of authors" class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>{{ author.name }}</strong>
+          <p>{{ author.bio }}</p>
+        </div>
+        <div class="d-flex gap-2">
+          <button (click)="editAuthor(author.id!)" class="btn btn-warning btn-sm">Edit</button>
+          <button (click)="deleteAuthor(author.id!)" class="btn btn-danger btn-sm">Delete</button>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>

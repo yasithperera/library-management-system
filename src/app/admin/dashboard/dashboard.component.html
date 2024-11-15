@@ -1,10 +1,14 @@
-<div class="admin-dashboard">
-  <h1>Admin Dashboard</h1>
-  <div class="actions">
-    <a routerLink="/authors" class="btn">Manage Authors</a>
-    <a routerLink="/books" class="btn">Manage Books</a>
+<div class="admin-dashboard container mt-5">
+  <h1 class="text-center mb-4">Admin Dashboard</h1>
+
+  <!-- Action Buttons for Admin -->
+  <div class="actions text-center mb-5">
+    <a routerLink="/authors" class="btn btn-primary btn-lg mx-3">Manage Authors</a>
+    <a routerLink="/books" class="btn btn-secondary btn-lg mx-3">Manage Books</a>
   </div>
 
-  <a routerLink="/" class="btn" (click)="logout()">Logout</a>
-
+  <!-- Logout Button -->
+  <div class="text-center">
+    <a routerLink="/" class="btn btn-danger btn-lg" (click)="logout()">Logout</a>
+  </div>
 </div>
