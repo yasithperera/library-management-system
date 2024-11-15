@@ -1,0 +1,113 @@
+<app-header/>
+<div class="container mt-4">
+  <h1 class="mb-4">Search Books</h1>
+
+  <!-- Radio Buttons for Search Type -->
+  <div class="form-group">
+    <label class="form-label">Search By:</label>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        id="allBooks"
+        name="searchType"
+        value="all"
+        [(ngModel)]="searchType"
+        (change)="onSearchTypeChange()"
+      />
+      <label class="form-check-label" for="allBooks">All Books</label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        id="byTitle"
+        name="searchType"
+        value="title"
+        [(ngModel)]="searchType"
+        (change)="onSearchTypeChange()"
+      />
+      <label class="form-check-label" for="byTitle">By Title</label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        id="byAuthor"
+        name="searchType"
+        value="author"
+        [(ngModel)]="searchType"
+        (change)="onSearchTypeChange()"
+      />
+      <label class="form-check-label" for="byAuthor">By Author</label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        id="byIsbn"
+        name="searchType"
+        value="isbn"
+        [(ngModel)]="searchType"
+        (change)="onSearchTypeChange()"
+      />
+      <label class="form-check-label" for="byIsbn">By ISBN</label>
+    </div>
+  </div>
+
+  <!-- Dynamic Search Input -->
+  <div class="form-group mt-3" *ngIf="searchType !== 'all'">
+    <label for="searchInput" class="form-label">
+      {{ searchType === 'title' ? 'Enter Title:' : searchType === 'author' ? 'Select Author:' : 'Enter ISBN:' }}
+    </label>
+
+    <!-- Input for Title or ISBN -->
+    <input
+      *ngIf="searchType !== 'author'"
+      type="text"
+      id="searchInput"
+      class="form-control"
+      [(ngModel)]="searchQuery"
+      placeholder="Enter search text"
+    />
+
+    <!-- Dropdown for Authors -->
+    <select
+      *ngIf="searchType === 'author'"
+      id="searchInput"
+      class="form-select"
+      [(ngModel)]="selectedAuthorId"
+    >
+      <option *ngFor="let author of authors" [value]="author.id">
+        {{ author.name }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Search Button -->
+  <div class="mt-3">
+    <button class="btn btn-primary" (click)="onSearch()">Search</button>
+  </div>
+
+  <!-- Book List Display -->
+  <div *ngIf="books.length > 0" class="mt-4">
+    <h3>Books:</h3>
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between" *ngFor="let book of books">
+        <div>
+          <strong>{{ book.title }}</strong> by {{ getAuthorName(book.authorId) }}
+          <br />
+          ISBN: {{ book.isbn }}
+          <br>
+          Genre : {{book.genre}}
+          <br>
+          Tags : {{book.tags}}
+          <br><br>
+          Summary : <br> {{book.description}}
+        </div>
+
+        <img src="{{book.coverImageUrl}}" alt="">
+      </li>
+    </ul>
+  </div>
+</div>

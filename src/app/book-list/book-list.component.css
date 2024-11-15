@@ -1,0 +1,40 @@
+.book-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.book-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.book-card p {
+  margin: 5px 0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+input.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 5px;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+.list-group-item{
+  div{
+    width: 60%;
+  }
+  img{
+    width: 30%;
+    height: auto;
+  }
+}

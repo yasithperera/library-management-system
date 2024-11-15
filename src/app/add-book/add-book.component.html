@@ -1,0 +1,62 @@
+<app-header/>
+<div class="container">
+  <h1>Add Book</h1>
+
+  <form (ngSubmit)="onSubmit()">
+    <!-- Title Field -->
+    <div class="form-group">
+      <label for="title">Book Title:</label>
+      <input type="text" id="title" [(ngModel)]="bookData.title" name="title" class="form-control" required>
+    </div>
+
+    <!-- Author Selection -->
+    <div class="form-group">
+      <label for="author">Author:</label>
+      <select id="author" [(ngModel)]="bookData.authorId" name="author" class="form-control" required>
+        <option *ngFor="let author of authors" [value]="author.id">{{ author.name }}</option>
+      </select>
+    </div>
+
+    <!-- Genre Selection -->
+    <div class="form-group">
+      <label for="genre">Genre:</label>
+      <select id="genre" [(ngModel)]="bookData.genre" name="genre" class="form-control" required>
+        <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+      </select>
+    </div>
+
+    <!-- ISBN Field -->
+    <div class="form-group">
+      <label for="isbn">ISBN:</label>
+      <input type="text" id="isbn" [(ngModel)]="bookData.isbn" name="isbn" class="form-control" required>
+    </div>
+
+    <!-- Description Field -->
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" [(ngModel)]="bookData.description" name="description" class="form-control"></textarea>
+    </div>
+
+    <!-- Cover Image URL Field -->
+    <div class="form-group">
+      <label for="coverImageUrl">Cover Image URL:</label>
+      <input type="url" id="coverImageUrl" [(ngModel)]="bookData.coverImageUrl" name="coverImageUrl"
+             class="form-control">
+    </div>
+
+    <!-- Tags Selection (Checkboxes) -->
+    <div class="form-group d-flex gap-4">
+      <label>Tags:</label><br>
+      <div *ngFor="let tag of availableTags" class="d-flex gap-1">
+        <input type="checkbox"
+               [value]="tag"
+               (change)="onTagChange(tag, $event)"
+               [checked]="bookData.tags.includes(tag)">
+        <label>{{ tag }}</label>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary">Add Book</button>
+  </form>
+</div>
