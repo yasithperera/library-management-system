@@ -8,14 +8,18 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
 import {BookListComponent} from './book-list/book-list.component';
 import {BookDetailComponent} from './book-detail/book-detail.component';
-import {AddBookComponent} from './add-book/add-book.component';
+import {AddBookComponent} from './admin/add-book/add-book.component';
 import {AuthorListComponent} from './author-list/author-list.component';
-import {AddAuthorComponent} from './add-author/add-author.component';
+import {AddAuthorComponent} from './admin/add-author/add-author.component';
 import {FormsModule} from "@angular/forms";
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutComponent } from './about/about.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { ManageAuthorsComponent } from './admin/manage-authors/manage-authors.component';
+import { ManageBooksComponent } from './admin/manage-books/manage-books.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { AboutComponent } from './about/about.component';
     HomeComponent,
     HeaderComponent,
     ContactUsComponent,
-    AboutComponent
+    AboutComponent,
+    LoginComponent,
+    DashboardComponent,
+    ManageAuthorsComponent,
+    ManageBooksComponent
   ],
   imports: [
     BrowserModule,

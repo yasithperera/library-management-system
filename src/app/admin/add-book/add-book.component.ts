@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
-import {BookDTO} from "../models/book.model";
-import {AuthorService} from "../services/author.service";
-import {BookService} from "../services/book.service";
-import {Author} from "../models/author.model";
+import {BookDTO} from "../../models/book.model";
+import {AuthorService} from "../../services/author.service";
+import {BookService} from "../../services/book.service";
+import {Author} from "../../models/author.model";
 
 @Component({
   selector: 'app-add-book',

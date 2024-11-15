@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {AuthorService} from "../services/author.service";
-import {Author, AuthorDTO} from "../models/author.model";
+import {AuthorService} from "../../services/author.service";
+import {Author, AuthorDTO} from "../../models/author.model";
 
 @Component({
   selector: 'app-add-author',
