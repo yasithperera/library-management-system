@@ -1,16 +1,19 @@
+/* General Body Styling */
 body {
   font-family: Arial, sans-serif;
   background-color: #f8f9fa;
 }
 
+/* Contact Section Styling */
 .contact-section {
-  padding: 60px 0;
+  padding: 40px 20px;
 }
 
+/* Contact Information Styling */
 .contact-info {
   background: #ffffff;
   padding: 30px;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 30px;
 }
@@ -24,8 +27,10 @@ body {
 .contact-info p {
   font-size: 16px;
   color: #555;
+  margin-bottom: 10px;
 }
 
+/* Form Elements Styling */
 .form-control {
   margin-bottom: 15px;
   border-radius: 5px;
@@ -36,40 +41,62 @@ body {
   color: #ffffff;
   border-radius: 5px;
   padding: 10px 20px;
+  width: 100%; /* Full-width button for better mobile UX */
 }
 
-.map-container {
-  margin-top: 30px;
-}
-
+/* Contact Image Container */
 #contact-image-container {
   width: 100%;
-  height: 100%;
+  height: 100%; /* Set a height for the image container */
+  min-height: 300px;
   background-image: url("/img/library.jpg");
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
+  border-radius: 12px;
 }
 
+/* Contact Section Layout */
 #contact-details-sections-div {
-  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+  gap: 20px; /* Consistent spacing between sections */
+}
 
-  section {
-    border-radius: 20px;
+#contact-details-sections-div section {
+  width: 100%; /* Default to full width for mobile */
+  height: auto; /* Adjust height for content */
+}
 
-    div {
-      border-radius: 20px;
-
-    }
+@media (min-width: 768px) {
+  #contact-details-sections-div section {
+    width: 48%; /* Side-by-side layout for larger screens */
   }
 }
+
+/* Google Map Styling */
 .map-container {
-  width: 100%;            /* Full width for responsive design */
-  /*max-width: 800px;       !* Optional max width *!*/
-  margin: 0 auto;         /* Center the map on the page */
+  margin-top: 30px;
+  width: 100%; /* Full width for responsive design */
 }
 
 .map-container iframe {
   width: 100%;
-  height: 450px;          /* Set a fixed height */
-  border: none;           /* Remove the border */
+  height: 450px; /* Fixed height for better visibility */
+  border: none; /* Remove border */
+}
+
+/* Success and Error Messages */
+.success,
+.error {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
 }

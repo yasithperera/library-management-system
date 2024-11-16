@@ -1,65 +1,79 @@
-<app-header/>
+<app-header></app-header>
 <div class="contact-section">
   <div class="container">
-    <div class="d-flex gap-5 mb-5" id="contact-details-sections-div">
-      <!--      contact details section -->
-      <section class="w-50">
+    <!-- Contact Details and Image Section -->
+    <div id="contact-details-sections-div">
+      <!-- Contact Details Section -->
+      <section class="contact-details">
         <!-- Contact Information -->
-        <div>
-          <div class="contact-info">
-            <h3>Contact Information</h3>
-            <div class="d-flex gap-5">
-              <p><strong>Address:</strong> {{ companyContact.address }}</p>
-              <p><strong>Phone:</strong> {{ companyContact.phone }}</p>
-              <p><strong>Email:</strong> {{ companyContact.email }}</p>
-            </div>
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <div class="info">
+            <p><strong>Address:</strong> {{ companyContact.address }}</p>
+            <p><strong>Phone:</strong> {{ companyContact.phone }}</p>
+            <p><strong>Email:</strong> {{ companyContact.email }}</p>
           </div>
         </div>
 
         <!-- Contact Form -->
-        <div>
+        <div class="contact-form">
           <h2>Get in Touch</h2>
           <form #contactForm="ngForm" (ngSubmit)="sendEmail()">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Your Name" [(ngModel)]="contact.name" name="name"
-                     required>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Your Name"
+                [(ngModel)]="contact.name"
+                name="name"
+                required />
             </div>
             <div class="form-group">
-              <input type="email" class="form-control" placeholder="Your Email" [(ngModel)]="contact.email" name="email"
-                     required>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Your Email"
+                [(ngModel)]="contact.email"
+                name="email"
+                required />
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Subject" [(ngModel)]="contact.subject"
-                     name="subject">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Subject"
+                [(ngModel)]="contact.subject"
+                name="subject" />
             </div>
             <div class="form-group">
-            <textarea class="form-control" rows="5" placeholder="Message" [(ngModel)]="contact.message" name="message"
-                      required></textarea>
+              <textarea
+                class="form-control"
+                rows="5"
+                placeholder="Message"
+                [(ngModel)]="contact.message"
+                name="message"
+                required></textarea>
             </div>
             <button type="submit" class="btn btn-submit">Send Message</button>
-
             <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
             <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
           </form>
         </div>
       </section>
 
-      <!--      contact image section-->
-      <section class="w-50">
-        <div id="contact-image-container">
-
-        </div>
+      <!-- Contact Image Section -->
+      <section id="contact-image-section">
+        <div id="contact-image-container"></div>
       </section>
     </div>
 
     <!-- Google Map -->
-    <div class="row map-container">
-      <div class="col-12">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990.7118689183172!2d79.9639141694358!3d6.665815631622661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae249cad6d7fda3%3A0x56bf4e7911f81553!2sMawala%20Temple%20Bus%20Stop!5e0!3m2!1sen!2slk!4v1731559229344!5m2!1sen!2slk"
-          style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990.7118689183172!2d79.9639141694358!3d6.665815631622661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae249cad6d7fda3%3A0x56bf4e7911f81553!2sMawala%20Temple%20Bus%20Stop!5e0!3m2!1sen!2slk!4v1731559229344!5m2!1sen!2slk"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
   </div>
 </div>

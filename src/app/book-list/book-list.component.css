@@ -29,12 +29,10 @@ input[type="radio"] {
   margin-right: 10px;
 }
 
-.list-group-item{
-  div{
-    width: 60%;
-  }
-  img{
-    width: 30%;
-    height: auto;
-  }
+img{
+  width: 100%;
+  object-fit: contain;
+  max-height: 500px;
+  padding: 10px;
+
 }
